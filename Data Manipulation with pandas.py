@@ -73,3 +73,60 @@ print(temperatures_srt.loc[:,"date":"date to avg_temp_c"])
 print(temperatures_srt.loc[("India", "Hyderabad"):("Iraq","Baghdad"),"date":"date to avg_temp_c"])
 
 #4.
+# Modify bins to 20
+avocados[avocados["type"] == "conventional"]["avg_price"].hist(alpha=0.5, bins=20)
+
+# Modify bins to 20
+avocados[avocados["type"] == "organic"]["avg_price"].hist(alpha=0.5,bins=20)
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
+# Import matplotlib.pyplot with alias plt
+import matplotlib.pyplot as plt
+
+# Check individual values for missing values
+print(avocados_2016.isna())
+
+# Check each column for missing values
+print(avocados_2016.isna().any())
+
+# Bar plot of missing values by variable
+avocados_2016.isna().sum().plot(kind="bar")
+
+# Show plot
+plt.show()
+# Fill in missing values with 0
+avocados_filled = avocados_2016.fillna(0)
+
+# Create histograms of the filled columns
+avocados_filled[cols_with_missing].hist()
+plt.show()
+
+# Show the plot
+plt.show()
+# Create a list of dictionaries with new data
+avocados_list = [
+    {"date": "2019-11-03", "small_sold": 10376832, "large_sold": 7835071},
+    {"date": "2019-11-10", "small_sold": 10717154, "large_sold": 8561348},
+]
+
+# Convert list into DataFrame
+avocados_2019 = pd.DataFrame(avocados_list)
+
+# Print the new DataFrame
+print(avocados_2019)
+# Create a dictionary of lists with new data
+avocados_dict = {
+  "date": ["2019-11-17","2019-12-01"],
+  "small_sold": [10859987,9291631],
+  "large_sold": [7674135,6238096]
+}
+
+# Convert dictionary into DataFrame
+avocados_2019 = pd.DataFrame(avocados_dict)
+
+# Print the new DataFrame
+print(avocados_2019)
